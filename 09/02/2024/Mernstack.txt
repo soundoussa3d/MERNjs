@@ -1,0 +1,38 @@
+*********Stacks**********
+MERN: MongoDB , ExpressJS , ReactJS ,  NodeJS
+LAMP : Linux , Apache , Mysql ,  PHP
+MEAN: MongoDB , ExpressJS ,AngularJS NodeJS 
+
+*Express : A powerful middleware that sits on top of the server-side Node.js web APIs.
+
+*MERN Full-Stack is a Javascript Stack utilized for more straightforward and quicker organization of full-stack web applications.
+
+*Impacts of MERN Stack on the web app:
+1-Cost-effective : the four technologies are open source
+2-SEO friendly:(Search Engine Optimization)
+3-Better performance due to the fast response between the Back-end , Front-End and Database(providing a smooth user interface)
+4-Improves Security
+5-Provide the fastest delivery (delivered faster to our client)
+6-Provides faster Modifications :These technologies support quick modifications to clients' requests and are agile.
+7-Open source
+8-Easy to switch between client and server
+
+*Mern Stack Components:
+1-Front-End for the "web"
+ => handled by "ReactJS"
+2- The middle is the "Server"
+ =>ExpressJS(maintains the server-side frameword and middleware running inside the nodejs server) and Node.js(a cross-platform runtime environment for executing Javascript code outside a browser)
+3- Back-End as "Database"
+ => MongoDB
+
+
+ *MongoDB:
+ 1-Mongo DB is a popular NoSQL and open-source document-oriented database. 
+ 2-'NoSQL' is a non-relational database and does not require a fixed schema, therefore it stores the data in a different format, unlike the relational tables.
+ 3-The format in which the data is stored is known as BSON (Binary JavaScript Object Notation) 
+ 4-Its structure encodes the length and type of information and therefore allows it to be parsed much more quickly, also allowing a highly scalable and flexible document structure.
+ 5-It is faster than RDBMS as it has efficient storage and better indexing techniques. 
+ 6-MongoDB uses JavaScript as a coding language which in itself is a big advantage for this stack. 
+ 7-As it is Schemaless, data stored is stored in a separate document. 
+ 8-It supports a flexible document model, which is remarkably fast for any developer to create. 
+ 9-MongoDB can easily scale by adding more and more servers, and at the same time, it increases productivity with its flexible document model
