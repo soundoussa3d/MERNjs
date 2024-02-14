@@ -1,4 +1,4 @@
-//map
+/*//map
 const numbers = [1, 2, 3];
 const doubled = numbers.map(number => number * 2); // [2, 4, 6]
 
@@ -70,4 +70,6 @@ export function greet() {
 export default function createGreeter(name) {
     return `Hello ${name}`
 }
-//Importing
+//Importing*/
+function myFunc(a, b) { return a * b; } 
+console.log(myFunc(3, 5));

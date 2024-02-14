@@ -1,5 +1,16 @@
 // Fetch user data from the API
-const fetchUserData = async () => {
+async function fetchData1() {
+    try {
+     const data = await fetch("https://dummyjson.com/users");
+     const result = await data.json();
+     console.log("RESULT: ", result)
+     return result;
+    } catch (error) {
+       console.log('FATAL ERROR: ', error.message)
+    }
+}
+
+/*const fetchUserData = async () => {
     try {
         const response = await fetch('https://dummyjson.com/users');
         if (!response.ok) {
@@ -11,7 +22,8 @@ const fetchUserData = async () => {
         return [];
     }
 };
-
+fetchUserData();*/
+const userData=fetchData1();
 // Process user data
 const processUserData = (userData) => {
     // Ensure userData is an array
@@ -44,6 +56,8 @@ const summarizeAge = (userData) => {
     return totalAge;
 };
 
+processUserData(userData).processedData;
+//console.log(result);
 // Fetch user data, process it, summarize it, and display the results
 (async () => {
     try {
