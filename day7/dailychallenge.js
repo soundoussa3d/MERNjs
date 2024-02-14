@@ -1,74 +1,66 @@
-// Fetch user data from the API
-async function fetchData1() {
+async function fetchData() {
     try {
-     const data = await fetch("https://dummyjson.com/users");
-     const result = await data.json();
-     console.log("RESULT: ", result)
-     return result;
+      const response = await fetch('https://dummyjson.com/users');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      //console.log(data);
+      console.log("data  successfully");
+      return data;
+      //console.log(users[0][1]);
     } catch (error) {
-       console.log('FATAL ERROR: ', error.message)
+      console.error(error.message);
     }
-}
+    
+    return data;
+  }
 
-/*const fetchUserData = async () => {
-    try {
-        const response = await fetch('https://dummyjson.com/users');
-        if (!response.ok) {
-            throw new Error('Failed to fetch user data');
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error fetching user data:', error);
-        return [];
+  async function useData() {
+    const data = await fetchData();
+    if (data) {
+      console.log(data.users[0]);
+      //males
+      var males = data.users.filter(user=>user.gender=="male");
+      //other than males
+      var others= data.users.filter(user=>user.gender!=="male");
+      
+      var other=others.map((user=>"Name :"+user.firstName +" "+user.lastName + " , Age : "+ user.age));
+
+      /*for (let i = 0; i < other.length; i++) {
+        console.log(other[i]);
+      }*/
+
+      //destructuring
+    } else {
+      console.error('Failed to fetch data');
     }
-};
-fetchUserData();*/
-const userData=fetchData1();
-// Process user data
-const processUserData = (userData) => {
-    // Ensure userData is an array
-    if (!Array.isArray(userData)) {
-        console.error('userData is not an array');
-        return [];
+  }
+  //useData();
+
+  async function summarizeAge() {
+    const data = await fetchData();
+    if (data) {
+      var males = data.users.filter(user=>user.gender=="male");
+      
+      var age = males.reduce((total,male)=>total+=male.age,0);
+      console.log(age);
+    } else {
+      console.error('Failed to fetch data');
     }
+  }
+  async function displayresult() {
+    const data = await fetchData();
+    if (data) {
+      console.log("users:");
+       data.users.map(user=>console.log(user));
+      console.log("the age of all the male users:");
+      summarizeAge();
 
-    // Filter out users with gender "male" and map the remaining users
-    const processedData = userData
-        .filter(({ gender }) => gender !== 'male')
-        .map(({ name, age }) => `Name: ${name}, Age: ${age}`);
-
-    return processedData;
-};
-
-// Summarize age of male users
-const summarizeAge = (userData) => {
-    // Ensure userData is an array
-    if (!Array.isArray(userData)) {
-        console.error('userData is not an array');
-        return 0;
+    } else {
+      console.error('Failed to fetch data');
     }
-
-    // Calculate total age of male users
-    const totalAge = userData
-        .filter(({ gender }) => gender === 'male')
-        .reduce((sum, { age }) => sum + age, 0);
-
-    return totalAge;
-};
-
-processUserData(userData).processedData;
-//console.log(result);
-// Fetch user data, process it, summarize it, and display the results
-(async () => {
-    try {
-        const userData = await fetchUserData();
-        const processedData = processUserData(userData);
-        const totalAge = summarizeAge(userData);
-
-        console.log('Processed User Data:');
-        console.log(processedData);
-        console.log('Total Age of Male Users:', totalAge);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-})();
+  }
+  displayresult();
+  //summarizeAge();
+  
