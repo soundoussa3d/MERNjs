@@ -2,70 +2,110 @@ const ExcelJS = require('exceljs');
 
 // Load a workbook from a file
 const workbook = new ExcelJS.Workbook();
-workbook.xlsx.readFile('employees.xlsx')
+workbook.xlsx.readFile('employee_data_.xlsx')
     .then(function() {
         // Use the workbook
         const worksheet = workbook.getWorksheet(1);
         worksheet.eachRow( function(row, rowNumber) {
             console.log('Row ' + rowNumber + ' = ' + JSON.stringify("id : "+row.values[1]+", AnnualSalary : " +row.values[2]));
         });          
+});
+
+
+ //writing in the file
+ workbook.xlsx.readFile('employee_data2_.xlsx').then(() => {
+    const worksheet = workbook.getWorksheet(1);
+
+    // Add new columns
+    worksheet.getColumn('C').header = 'BonusPercentage';
+    worksheet.getColumn('D').header = 'BonusAmount';
+
+    // Calculate bonuses
+    worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+        if (rowNumber === 1) return; // Skip header row
+        const salary = row.getCell('B').value;
+        let bonusPercentage, bonusAmount;
+
+        if (salary < 50000) {
+        bonusPercentage = 0.05;
+        } else if (salary <= 100000) {
+        bonusPercentage = 0.07; 
+        } else {
+        bonusPercentage = 0.1;
+        }
+
+        bonusAmount = salary * bonusPercentage;
+
+        row.getCell('C').value = bonusPercentage;
+        row.getCell('D').value = bonusAmount;
     });
 
-    //calculating bonus 
-    workbook.xlsx.readFile('example.xlsx')
-        .then(function() {
-            // Use the workbook
-            const worksheet = workbook.getWorksheet(1);
+    // Save the updated workbook
+    return workbook.xlsx.writeFile('employee_data2_.xlsx');
+    }).then(() => {
+    console.log('Bonuses calculated and saved.');
+    }).catch(err => {
+    console.error('Error:', err);
+    });
     
-            // Add two new columns
-            worksheet.getColumn('C').values = ['BonusPercentage'];
-            worksheet.getColumn('D').values = ['BonusAmount'];
-    
-            // Iterate over each row and fill the new columns
-            worksheet.eachRow({ includeEmpty: true }, function(row, rowNumber) {
-                if (rowNumber === 1) {
-                    // Skip the header row
-                    return;
-                }
-    
-                // Get the value from the third column (C)
-                const valueC = row.getCell(2).value;
-    
-                // Calculate values for the new columns
-                var newValue1;
-                if (valueC<50000) {
-                    newValue1 = 5;
-                }
-                else if (valueC<100000) {
-                    newValue1=7;
-                } else {
-                    newValue1=10;
-                }
-                
-                const newValue2 = valueC+(valueC*newValue1)/100;
-                // Set the values in the new columns for the current row
-                row.getCell('C').value = newValue1;
-                row.getCell('D').value = newValue2;
-            });
-    
-            // Save the workbook with the new columns
-            return workbook.xlsx.writeFile('employees.xlsx');
-        })
-        .then(function() {
-            console.log('New columns added and filled successfully!');
-        })
-        .catch(function(error) {
-            console.error('Error:', error);
-        });
 /*
-        workbook.xlsx.readFile('employees.xlsx')
-        .then(function() {
-            // Use the workbook
-            const worksheet = workbook.getWorksheet(1);
-            worksheet.eachRow( function(row, rowNumber) {
-                console.log('Row ' + rowNumber + ' = ' + JSON.stringify("id : "+row.values[1]+", AnnualSalary : " +row.values[2]+", " + row.values[3]+", " + row.values[4]));
-            });          
-        }); 
-
+//remove the added columns
+workbook.xlsx.readFile('employee_data2_.xlsx').then(() => {
+    const worksheet = workbook.getWorksheet(1);
+  
+    // Remove the added columns
+    worksheet.getColumn('C').eachCell((cell) => {
+      cell.value = null;
+    });
+    worksheet.getColumn('D').eachCell((cell) => {
+      cell.value = null;
+    });
+  
+    // Save the updated workbook
+    return workbook.xlsx.writeFile('employee_data2_.xlsx');
+  }).then(() => {
+    console.log('Columns removed and file saved.');
+  }).catch(err => {
+    console.error('Error:', err);
+  });
 */
+
+    //writing in a new xlsx file 
+
+    workbook.xlsx.readFile('employee_data_.xlsx').then(() => {
+    const worksheet = workbook.getWorksheet(1);
+
+    // Add new columns
+    worksheet.getColumn('C').header = 'BonusPercentage';
+    worksheet.getColumn('D').header = 'BonusAmount';
+
+    // Calculate bonuses
+    worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+        if (rowNumber === 1) return; // Skip header row
+        const salary = row.getCell('B').value;
+        let bonusPercentage, bonusAmount;
+
+        if (salary < 50000) {
+        bonusPercentage = 0.05;
+        } else if (salary <= 100000) {
+        bonusPercentage = 0.07; 
+        } else {
+        bonusPercentage = 0.1;
+        }
+
+        bonusAmount = salary * bonusPercentage;
+
+        row.getCell('C').value = bonusPercentage;
+        row.getCell('D').value = bonusAmount;
+    });
+
+    // Save the updated workbook
+    return workbook.xlsx.writeFile('employees_with_bonuses.xlsx');
+    }).then(() => {
+    console.log('Bonuses calculated and saved.');
+    }).catch(err => {
+    console.error('Error:', err);
+    });
+
+    //bonus features (Do them later )
 
