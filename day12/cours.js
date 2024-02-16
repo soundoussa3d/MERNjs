@@ -153,7 +153,30 @@ for (let i = 0; i < array.length; i++) {
 
 
  
-/*//event 
+/*//event   
 rl.on('close',()=>{
     console.log("end");
 });*/
+
+
+
+//How can you emit an event with data to be passed to the listeners?=>
+//=>emit('eventName', data)
+
+//Which statement is true about the behavior of CommonJS modules in Node.js?
+
+//In which type of applications is event-driven architecture particularly beneficial?
+//=>Event-driven architecture is particularly beneficial for real-time applications such as chat applications or streaming services. These applications require handling a large number of concurrent events, such as incoming messages or data streams, and reacting to them in real-time. Event-driven architecture allows such applications to efficiently manage and process these events asynchronously, without blocking the main thread of execution.
+
+
+//Event-driven architecture =>
+//A technique for handling synchronous operations in Node.js
+
+//Which module specification is commonly used in Node.js?
+
+//Which core module in Node.js provides the EventEmitter class?
+
+
+//What is an "event" in the context of EventEmitter?
+
+//=>A named signal that indicates something has happened
