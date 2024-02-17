@@ -18,18 +18,23 @@ for (let i = 0; i < cities.length; i++) {
     obj[1]=cities[i].name;
     cities1.push(obj);
 }
-console.log(cities1);
+//console.log(cities1);
   //function to select a city randomly
   //2
   function selectRandomCity(cities) {
     const randomIndex = Math.floor(Math.random() * cities.length);
     return cities[randomIndex];
   }
-  console.log(selectRandomCity(cities1));
+ var citySelected= selectRandomCity(cities1);
+
+  var city= cities.find((c)=>c.name==citySelected[1]);
+  //console.log(city.lat);
 
   //code fetch an API data 
-  async function fetchdata() {
-    const url = "http://api.weatherapi.com/v1";
+  async function fetchdata(lat,lng) {
+    var city=cities.find((c)=>c.lat==lat);
+    var name=city.name;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`;
     await fetch(url, {
       method: "GET",
       withCredentials: true,
@@ -40,19 +45,13 @@ console.log(cities1);
     })
       .then(resp => resp.json())
       .then(function(data) {
-        console.log(data);
+        console.log("The temperature of "+name+" is :" + data.current_weather.temperature + " °C");
       })
+  
       .catch(function(error) {
         console.log(error);
       });
-      /*const city=selectRandomCity(cities1);
-      const city1=data.find((c)=>c.location.name==city[1]);
-      console.log("the temperature in : "+city1 + " is " +  city1.current.temp_c);*/
   }
-  fetchdata();
-  /*const response = await fetch('http://api.weatherapi.com/v1');
-  const apiKey="f515f8f1e58e407b9ca112720241602";
-  const data = await response.json();
-  console.log('Data:', data);*/
+  fetchdata(city.lat,city.lng);
 
 
