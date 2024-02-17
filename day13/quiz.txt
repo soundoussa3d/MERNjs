@@ -1,0 +1,53 @@
+How can you use `await` in an asynchronous function to handle Promise resolution?
+Which of the following options accurately describes the relationship between the async keyword and Promises?
+What does the .then() method of a Promise return?
+Which of the following is a common use case for using Promises?
+
+Which feature of promises helps avoid callback hell in Node.js?
+===>The feature of promises that helps avoid callback hell in Node.js is chaining. Promises allow you to chain multiple asynchronous operations together in a readable and manageable way, without nesting callbacks. This makes the code more readable and easier to maintain compared to deeply nested callbacks, which can lead to callback hell.
+
+
+What happens if an error occurs in an async function that uses await?
+==>The error is caught and can be handled using try-catch.
+
+Which of the following best describes asynchronous programming in Node.js?
+==>Executing tasks concurrently and handling results with callbacks
+
+What is the difference between Promise.resolve(value) and new Promise(resolve => resolve(value))?
+==>In summary, the key difference is in the timing of when the Promise is resolved, with Promise.resolve being immediate and new Promise(resolve => resolve(...)) being scheduled to resolve in the next tick of the event loop.
+
+What are the possible states of a promise?
+==>
+Pending, resolved, rejected
+
+
+ 
+Which of the following statements is true about async/await in Node.js?
+==>Async/await provides a more readable and synchronous-like way to write asynchronous code
+
+
+Which programming technique ensures blocking execution of code in Node.js?
+=>Synchronous programming
+
+What is a Promise in the context of Node.js?
+=>
+An object representing a potential future value or error
+
+
+How does async/await simplify error handling compared to using raw Promises?
+=> It provides a simpler .catch() method to handle errors
+
+
+Which of the following statements is true about using async/await in Node.js?
+=>
+`async/await` can only be used with Promises.
+
+
+Why is asynchronous programming important in Node.js?
+=>
+It improves resource utilization and application performance
+
+
+Which methods are associated with handling Promise rejections?
+=>
+`catch()`along with the 'then' method
