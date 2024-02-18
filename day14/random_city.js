@@ -1,4 +1,3 @@
-const fs = require('fs');
 const cities = [
     { name: 'New York', lat: 40.7128, lng: -74.0060 },
     { name: 'London', lat: 51.5074, lng: -0.1278 },
@@ -11,90 +10,65 @@ const cities = [
     { name: 'Dubai', lat: 25.2048, lng: 55.2708 },
     { name: 'Rabat', lat: 34.0209, lng: -6.8416 }
   ];
-  //1
-const cities1=[];
-for (let i = 0; i < cities.length; i++) {
-    var obj=[];
-    obj[0]=i+1;
-    obj[1]=cities[i].name;
-    cities1.push(obj);
+const fs = require('fs').promises; // Using fs.promises for async/await
+
+
+// Define the selectRandomCity function
+function selectRandomCity(cities) {
+  const randomIndex = Math.floor(Math.random() * cities.length);
+  return cities[randomIndex];
 }
-//console.log(cities1);
-  //function to select a city randomly
-  //2
-  function selectRandomCity(cities) {
-    const randomIndex = Math.floor(Math.random() * cities.length);
-    return cities[randomIndex];
-  }
- var citySelected= selectRandomCity(cities1);
 
-  var city= cities.find((c)=>c.name==citySelected[1]);
-  console.log(city.name);
+// Define the fileInput function
+async function fileInput() {
+  try {
+    // Select a random city
+    const citySelected = selectRandomCity(cities);
+    const city = cities.find((c) => c.name == citySelected.name);
 
-  //create a file and put the name of the city in  it 
-  fs.writeFile('input.txt', city.name, (err) => {
-    if (err) {
-      console.error('Error creating file:', err);
-    } else {
-      console.log('File created successfully.');
-    }
-  });
+    // Write the city name to input.txt
+    await fs.writeFile('input.txt', city.name);
 
-
-  //1-read the file 
-  fs.readFile('input.txt', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-    } else {
-      console.log('File contents:', data);
-      
-    }
-  });
-  
-  
-  //code fetch an API data 
-  async function fetchdata(lat,lng) {
-    var city=cities.find((c)=>c.lat==lat);
-    var name=city.name;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`;
-    await fetch(url, {
-      method: "GET",
-      withCredentials: true,
-      headers: {
-        "X-Auth-Token": "f515f8f1e58e407b9ca112720241602",
-        "Content-Type": "application/json" 
-      }
-    })
-      .then(resp => resp.json())
-      .then(function(data) {
-        console.log("The temperature of "+name+" is :" + data.current_weather.temperature + " °C");
-      })
-  
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
-  
-var result = fetchdata(city.lat,city.lng);
-//console.log(temp);
-
-  // Creating a new file
-fs.writeFile('cityname.txt',result, (err) => {
-  if (err) {
-    console.error('Error creating file:', err);
-  } else {
-    console.log('File created successfully.');
-  }
-});
-
-
-fs.readFile('cityname.txt', 'utf8', (err, data) => {
-  if (err) {
-    console.error('Error reading file:', err);
-  } else {
+    // Read the contents of input.txt
+    const data = await fs.readFile('input.txt', 'utf8');
     console.log('File contents:', data);
+
+    // Fetch data from the API
+    const apiData = await fetchdata(city.lat, city.lng);
+    const temperature = apiData.current_weather.temperature;
+    console.log(`The temperature of ${city.name} is: ${temperature} °C`);
+
+    // Write the temperature to cityname.txt
+    await fs.writeFile('cityname.txt', `The temperature of ${city.name} is: ${temperature} °C`);
     
+    // Read the contents of cityname.txt
+    const citynameData = await fs.readFile('cityname.txt', 'utf8');
+    console.log('City name file contents:', citynameData);
+
+    // Delete the input.txt file
+    await fs.unlink('input.txt');
+    console.log('File input.txt deleted successfully.');
+  } catch (err) {
+    console.error('Error:', err);
   }
-});
+}
+
+// Define the fetchdata function
+async function fetchdata(lat, lng) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`;
+  const response = await fetch(url, {
+    method: 'GET',
+    withCredentials: true,
+    headers: {
+      'X-Auth-Token': 'f515f8f1e58e407b9ca112720241602',
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+// Call the fileInput function to start the process
+fileInput();
 
 
