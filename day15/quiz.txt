@@ -1,0 +1,65 @@
+1-When creating an HTTP server using the http module, the server is an instance of the http.Server class.
+=>true
+
+2-What does the pathname property of the URL object in the url module represent?
+=>The path of the URL
+
+3-How can you handle incoming HTTP requests in a Node.js HTTP server?
+=>By assigning a callback function to the `request` event
+
+4-Which HTTP method is used when a browser requests a resource by clicking a link or typing a URL in the address bar?
+=>GET
+
+5-What does the listen method do in the context of an HTTP server?
+=>Starts the server and makes it listen for incoming requests
+
+6-What does the http.createServer() method return?
+=>An instance of the Server class
+
+7-Which event is emitted when a client makes an HTTP request to the server?
+=>request
+
+8-Which method is used to create an HTTP server in the http module?
+=>
+createServer
+
+9-Which property of the URL object in the url module provides the protocol of the URL?
+=>protocol
+
+10-Which method is used to send data as the response body in a Node.js HTTP server?
+
+=>
+`response.write()`
+
+11-Which Node.js module is commonly used to create an HTTP server?
+
+12-The response object passed to the request event handler is an instance of the `http.ServerResponse class`
+=>true
+
+13-Which method is used to parse a URL string into a URL object in the url module?
+=>URL.parse
+
+14-How can you set the status code of an HTTP response in a Node.js HTTP server?
+=>
+`response.statusCode = 200;`
+
+15-What does the request.url property contain in an HTTP request?
+=>
+The URL of the requested resource
+
+16-Node.js provides the http module to create both HTTP clients and servers.
+=>true
+
+17-The HTTP server can only handle one request at a time due to Node.js's single-threaded nature.
+=>false
+
+18-What does the response.statusCode property indicate in an HTTP response?
+=>
+The HTTP status code of the response
+
+19-What is the purpose of the `response` object in a Node.js HTTP server?
+=>
+To send HTTP responses to clients
+
+20-Which status code indicates a successful HTTP response?
+=>200 OK
