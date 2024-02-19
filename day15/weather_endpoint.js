@@ -30,15 +30,12 @@ const url = require('url');
 function selectRandomCity(cities) {
     const randomIndex = Math.floor(Math.random() * cities.length);
     return cities[randomIndex];
-  }
+}
 
- // Select a random city
- const citySelected = selectRandomCity(cities);
- const city = cities.find((c) => c.name == citySelected.name);
 // Define the fetchdata function
 async function fetchdata(lat,lng) {
-    var city=cities.find((c)=>c.lat==lat);
-    var name=city.name;
+    //var city=cities.find((c)=>c.lat==lat);
+    //var name=city.name;
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`;
     await fetch(url, {
       method: "GET",
@@ -50,7 +47,8 @@ async function fetchdata(lat,lng) {
     })
       .then(resp => resp.json())
       .then(function(data) {
-        console.log("The temperature of "+name+" is :" + data.current_weather.temperature + " °C");
+        return data;
+        // data.current_weather.temperature;
       })
   
       .catch(function(error) {
@@ -59,37 +57,34 @@ async function fetchdata(lat,lng) {
   }
   //console.log(await fetchdata(city.lat,city.lng));
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     // Parse the request URL
     const parsedUrl = url.parse(req.url, true);
     
     // Extract the path and query parameters
     const path = parsedUrl.pathname;
-    const query = parsedUrl.query;
-    console.log('Parsed URL:', parsedUrl);
-    console.log('Path:', path);
-    console.log('Query:', query.lat);
+   // const query = parsedUrl.query;
+   //console.log('Query:', query.lat);
+
+    
+ // Select a random city
+ const citySelected = selectRandomCity(cities);
+ const city = cities.find((c) => c.name == citySelected.name);
+ //res.end(city.name);
     // Log the parsed URL
     if (path === '/weather') {
-        const {lat,lng} = query;
-        if (lat && lng) {
-            const  weatherData =async()=>
-            {
-                try {
-                    const response = await fetchdata(city.lat,city.lng);
-                    return response;
-                } catch (error) {
-                    console.log(error);
-                }
-            };
-            
-            //res.writeHead(200, {'Content-Type': 'application/json'});
-            console.log(weatherData);
-            res.end("done");
-        } else {
+        //const {lat,lng} = query;
+        //if (lat && lng) {
+            const  weatherData =await fetchdata(city.lat,city.lng);
+            console.log(JSON.stringify(weatherData));
+            res.end(JSON.stringify(weatherData));
+            //res.writeHead(200, p{'Content-Type': 'application/json'});
+            //console.log(weatherData);
+            //res.end("hello");
+        /*} else {
             //res.writeHead(400,{'Content-Type': 'text/plain'});
             res.end('Missing  latitude and longitude parameters');
-        }
+        }*/
     } else {
         //res.writeHead(404,{'Content-Type': 'text/plain'});
         res.end('Not Found');
