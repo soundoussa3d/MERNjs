@@ -54,6 +54,12 @@ app.post('/products',(req,res)=>{
     const newProd =req.body;
     if (!JSON.stringify(newProd)) {
         res.send('erreur');
+        return;
+    }
+    const product = products.find((p)=>p.id === newProd.id);
+    if (product) {
+        res.send("id already exists ");
+        return;
     }
     products.push(newProd);
     res.send('product added successfully \n liste of products : '+JSON.stringify(products));
@@ -75,8 +81,13 @@ app.put('/products/:id',(req,res)=>{
 
 //delete a specific product
 app.delete('/products/:id',(req,res)=>{
-    let product=products.find((p)=>p.id==req.params.id);
-    
+    let product = products.find((p)=>p.id==req.params.id);
+    if (!product) {
+        res.send('product not found ');
+        return;
+    }
+     products = products.filter((product)=>product.id!==parseInt(req.params.id));
+    res.send(JSON.stringify(products));
 })
 
 app.listen(3000,()=>{
