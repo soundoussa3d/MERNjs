@@ -1,0 +1,6 @@
+to solve xss we use 
+=>sanitization input 
+*cross site request forgery
+=>token injecter hidden 
+*cors
+*csyrf :generer et  envoyer un token in a request 
