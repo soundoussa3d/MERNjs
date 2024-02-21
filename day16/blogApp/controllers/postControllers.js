@@ -1,3 +1,4 @@
+//import the model Post
 const Post = require('../models/post');
 //get all Posts
 
@@ -44,13 +45,27 @@ function updateP(req,res) {
     if (!p) {
         res.status(401).json({message:'please provide us with the new data to update'});
     }
-    let posts= Post.getAllPosts();
+    //let posts= Post.getAllPosts();
     
     res.status(200).json(Post.updatePost(p,id));
 }
+//delete a post 
+function removePo(req,res) {
+    const id =parseInt(req.params.id);
+    if (!id) {
+        res.status(404).json({message:'id required'});
+    }
+    Post.removePost(id);
+    let posts= Post.getAllPosts();
+    res.status(200).json(posts);
+}
+
+//export modules 
+
 module.exports = {
     allPosts,
     addPost,
     postbyId,
-    updateP
+    updateP,
+    removePo
 };

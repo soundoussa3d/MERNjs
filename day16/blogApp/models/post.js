@@ -57,14 +57,14 @@ async function updatePost(post,id) {
     }
 }
 
-//remove post
+//delete a  post
 
 async function removePost(id) {
     const p=posts.find((po)=>po.id == id);
     const index = posts.indexOf(p);
-    if (index !== -1) {
+    if (index == -1) {
         return {
-            message: "This id is already in use"
+            message: "error"
         };
     }
     posts.splice(index,1);
@@ -80,7 +80,7 @@ async function removePost(id) {
     }
 }
 
-
+//export modules
 
 module.exports = {
     getAllPosts,
