@@ -4,9 +4,12 @@ const express = require('express');
 const app = express();
 const { body, validationResult } = require('express-validator');
 
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 // Simulated database object
 let database = {};
-
 app.post('/submit-form', 
   body('username').isLength({ min: 5 }).trim().escape(), 
   (req, res) => {

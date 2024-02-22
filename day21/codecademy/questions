@@ -1,0 +1,4 @@
+csrf:
+-make use of session-related information such as cookies and HTTP authentication
+-they allow attackers to assume the session identity of the user
+-they trick users into submitting malicious requests without them realizing 

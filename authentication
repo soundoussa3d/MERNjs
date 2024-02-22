@@ -1,0 +1,4 @@
+session based  or token based 
+avantage : the server has all ontrol
+inconvenietn : n+1 requette 
+chaque fois on doit envoyer une requete pour savoir si la session est good or not 
