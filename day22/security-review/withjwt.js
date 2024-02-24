@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-app.use(csrf({ cookie: true }));
 
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
@@ -24,16 +23,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Sample Vulnerable Node.js Application');
 });
 
-app.get('/login', (req, res) => {
-  res.send(`
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-      <input type="text" name="username" placeholder="Username" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
-      <button type="submit">Login</button>
-    </form>
-  `);
-});
+
 
 app.post('/login',[
     check('username', 'required username').isLength({min:4}),
@@ -53,24 +43,29 @@ app.post('/login',[
   
   res.json({token});
 
-  // Authenticate user (vulnerable code for the challenge)
-  if (username === 'admin' && password === 'password' ) {
-    req.session.authenticated = true;
-    res.redirect('/profile');
-  } else {
-    res.send('Invalid username or password');
-  }
 });
 
-//render form with csrf token
-app.get('/profile', (req, res) => {
-  if (req.session.authenticated) {
-    const usernamesanitised= escapeHtml(req.session.username);
-    //res.render('profile', {csrfToken : req.csrfToken });
-   res.send(`<h1>Welcome to your profile, ${usernamesanitised}</h1>`);
+function ensureToken(req,res,next) {
+  const bearerHeader = req.headers['authorization'];
+  if (typeof bearerHeader !== 'undefined') {
+    const bearerToken = bearerHeader.split(' ')[1];
+    req.token = bearerToken;
+    next();
   } else {
-    res.redirect('/login');
+    res.sendStatus(403);
   }
+}
+
+//render form with csrf token
+app.get('/profile',ensureToken , (req, res) => {
+  jwt.verify(req.token,'secret_key',(err,data)=>{
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      res.json({data});
+    }
+})
+  
 });
 
 // Server
