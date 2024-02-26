@@ -105,11 +105,12 @@ app.post('/login' ,(req, res) => {
       res.json({message : 'Passwords do not match'})
     }
     else{
-      req.session.id = user.id; // Set the value of the 'username' session variable
-      res.cookie('id', req.session.id);
-      //res.json({message : 'welcome to your account'});
-      res.redirect('/profile');
-
+      console.log(user.id);
+      //req.session.id = user.id; // Set the value of the 'username' session variable
+      //console.log(req.session.id);//?why
+      res.cookie('id', user.id);
+      res.json({message : 'welcome to your account'});
+      //res.redirect('/profile');
     }
    
 });
@@ -122,18 +123,17 @@ app.get('/profile',  (req, res) => {
     //const user = req.session.user;
     const cookieData = req.cookies.id; 
     if (!cookieData) {
-      res.status(404).json({ message: "not authoraized"});
+      res.status(404).json({message: "not authoraized"});
     }
-    const user = users.find(u=>u.id == cookieData.id );
-    
+    const user = users.find(u=>u.id == cookieData );
     res.json({ user: user});
 
   });
 
   app.get('/logout', (req, res) => {
     // Clear the session cookie
-    res.clearCookie('myCookie');
-
+    res.clearCookie('id');
+    res.redirect('/');
     // Destroy the session
     req.session.destroy((err) => {
         if (err) {
@@ -141,7 +141,6 @@ app.get('/profile',  (req, res) => {
             res.status(500).json({ message: 'Internal server error' });
             return;
         }
-
         // Redirect the user to the login page or any other page
         res.redirect('/');
     });
