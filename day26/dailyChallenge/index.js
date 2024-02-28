@@ -1,15 +1,26 @@
 //!connection to the database
 const { MongoClient } = require("mongodb");
 const client = new MongoClient("mongodb://localhost:27017");
-const database = client.db('mydb'); // Your database name
+//const database = client.db('mydb'); // Your database name
 
-//addusers
-      const collection = database.collection('users'); // Your collection name
-   
-      /*collection
-        .insertMany([{ name: "Arkadian8", age: "26" },{ name: "Arkadian9", age: "17" },{ name: "Arkadian10", age: "20" }])
+async function addUsers() {
+  
+  try {
+    await client.connect();
+
+    const database = client.db('mydb'); // Your database name
+    const collection = database.collection('users'); // Your collection name
+    const result = await collection
+        .insertMany([{ name: "hi", age: "26" },{ name: "hello", age: "17" },{ name: "hihello", age: "20" }])
         .then((user) => console.log("User Created Successfully: ", user))
-        .catch((error) => console.log("Error: ", error));*/
+        .catch((error) => console.log("Error: ", error));
+    return result;
+
+  } finally {
+    await client.close();
+  }
+}
+//addUsers().catch(console.error);
 
 async function getUsers() {
   

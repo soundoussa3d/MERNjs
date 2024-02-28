@@ -20,9 +20,9 @@ const User=mongoose.model('User',userSchema);
 //!2-create a new user
 
 const newUser=new User ({
-    name: "amina",
-    email: "amina@arks.group",
-    age:20,
+    name: "hiba",
+    email: "hiba@arks.group",
+    age:18,
 })
 
 async function addUsers(newUser) {
@@ -34,7 +34,7 @@ async function addUsers(newUser) {
         console.error('Error adding a user:', err);
       }
 }
-addUsers(newUser);
+//addUsers(newUser);
 
 
 //! 3- fetch users
@@ -43,7 +43,7 @@ function fetchUsers() {
   .then((users) => console.log(users))
   .catch((error) => console.log("Error fetching users: ", error));
 }
-fetchUsers();
+//fetchUsers();
 
 //! 3- fetch a user
 function fetchUser(nom) {
@@ -54,7 +54,7 @@ function fetchUser(nom) {
     })
     .catch((error) => console.log("Error fetching users: ", error));
 }
-//fetchUser("saad");
+//fetchUser("hiba");
 
 //!4-update user email
 function updateEmailUser(nom,email) {
@@ -69,7 +69,7 @@ function updateEmailUser(nom,email) {
         .catch((error) => console.log("Error fetching users: ", error));
     
 }
-//updateEmailUser("saad","saad@arkx.com");
+//updateEmailUser("saad","saad25@arkx.com");
 //fetchUsers();
 
 //!5-delete users created before a certain date 
@@ -86,4 +86,13 @@ oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
 //deleteUsers(oneWeekAgo).catch(console.error);
 //fetchUsers();
-
+//!delete a user 
+async function deleteUsers(name) {
+  try {
+      const result = await User.deleteMany({ name: { $eq: name } });
+      console.log(`${result.deletedCount} users deleted.`);
+    } catch (err) {
+      console.error('Error deleting users:', err);
+    }
+}
+//deleteUsers("hiba");
