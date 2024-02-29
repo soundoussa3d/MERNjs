@@ -7,6 +7,7 @@ const productSchema= new mongoose.Schema({
     price: { type:Number,required:true ,min:0},
     description:{type:String},
     inStock: {type:Boolean , default:true},
+    category_id: {type:mongoose.Schema.Types.ObjectId , ref:"Category"},
 },
 {
     timestamps : {type:Date,default : new Date()}
