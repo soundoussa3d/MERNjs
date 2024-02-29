@@ -12,20 +12,13 @@ async function connect() {
 connect();
 
 
-//!create new products
+
+//!create new product
 const newProduct = new Product(
     {
         name:"samsung s12",
         price : 8000,
         description :"samsung s12 phone",
-        category_id: "65e0426fa682b76a71fb6586"
-    }
-);
-const newProduct2 = new Product(
-    {
-        name:"iphone 12 pro ",
-        price : 8000,
-        description :"iphone 12 pro phone ",
         category_id: "65e0426fa682b76a71fb6586"
     }
 );
@@ -42,6 +35,161 @@ async function addProduct(newProduct) {
 }
 //addProduct(newProduct);
 //addProduct(newProduct2);
+
+//!create new products 
+//Add this array of sample products to your database
+const products = [
+    {
+      name: 'Laptop',
+      price: 1200,
+      description: 'High-performance laptop with powerful specs.',
+      inStock: true,
+    },
+    {
+      name: 'Smartphone',
+      price: 800,
+      description: 'Latest smartphone with advanced features.',
+      inStock: true,
+      category_id: "65e0426fa682b76a71fb6586"
+    },
+    {
+      name: 'Headphones',
+      price: 150,
+      description: 'Over-ear headphones with noise-cancelling technology.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Smartwatch',
+      price: 250,
+      description: 'Fitness tracker and smartwatch with health monitoring.',
+      inStock: false,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Camera',
+      price: 600,
+      description: 'Digital camera with high-resolution imaging.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Gaming Console',
+      price: 400,
+      description: 'Next-gen gaming console for immersive gaming experiences.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Bluetooth Speaker',
+      price: 80,
+      description: 'Portable Bluetooth speaker with crisp sound.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Tablet',
+      price: 300,
+      description: 'Slim and lightweight tablet for on-the-go productivity.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Coffee Maker',
+      price: 50,
+      description: 'Automatic coffee maker for brewing your favorite coffee.',
+      inStock: true,
+      category_id:"65e05d41a682b76a71fb658b"
+    },
+    {
+      name: 'Fitness Tracker',
+      price: 100,
+      description: 'Wearable fitness tracker with heart rate monitoring.',
+      inStock: false,
+      category_id:"65e05d41a682b76a71fb658b"
+    },
+    {
+      name: 'External Hard Drive',
+      price: 120,
+      description: 'Large-capacity external hard drive for data storage.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Wireless Mouse',
+      price: 30,
+      description: 'Ergonomic wireless mouse for comfortable computing.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Portable Charger',
+      price: 20,
+      description: 'Compact portable charger for on-the-go device charging.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Smart Bulbs',
+      price: 15,
+      description: 'Set of smart bulbs for customizable lighting at home.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Backpack',
+      price: 40,
+      description: 'Durable backpack with multiple compartments for storage.',
+      inStock: true,
+      category_id:"65e05d41a682b76a71fb658b"
+    },
+    {
+      name: 'Wireless Earbuds',
+      price: 120,
+      description: 'True wireless earbuds for immersive audio experiences.',
+      inStock: false,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Graphic Tablet',
+      price: 200,
+      description: 'Digital graphic tablet for artists and designers.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+    {
+      name: 'Desk Chair',
+      price: 150,
+      description: 'Comfortable desk chair with adjustable features.',
+      inStock: true,
+      category_id:"65e05d41a682b76a71fb658b"
+    },
+    {
+      name: 'Air Purifier',
+      price: 80,
+      description: 'HEPA air purifier for cleaner and fresher indoor air.',
+      inStock: true,
+      category_id:"65e05d41a682b76a71fb658b"
+    },
+    {
+      name: 'Electric Toothbrush',
+      price: 40,
+      description: 'Electric toothbrush for effective dental care.',
+      inStock: true,
+      category_id: "65e05cdea682b76a71fb658a"
+    },
+  ];
+
+//!add Products 
+async function addProducts(newProducts) {
+    try {
+        const result = await Product.insertMany(newProducts);
+        console.log("Product added successfully : " + result);
+      } catch (err) {
+        console.error('Error adding product:', err);
+      }
+}
+//addProducts(products);
 
 //!get All data
 //*retrieve all the data from the database
@@ -71,7 +219,7 @@ async function sortedPrice() {
 //* pagination - limiting results
 async function pagination() {
     try {
-        const result = await Product.find().limit(1);
+        const result = await Product.find().limit(5);
         console.log(result);
     } catch (error) {
         return error;
