@@ -16,7 +16,10 @@ app.use(
   session({
     secret: 'mySecretKey', // Secret key used to sign the session ID cookie
     resave: false, // Whether to save the session for every request, even if it hasn't changed
-    saveUninitialized: true // Whether to save uninitialized sessions (new but not modified)
+    saveUninitialized: true, // Whether to save uninitialized sessions (new but not modified)
+    /*cookie:{
+      httpOnly:true, 
+    }*/
   })
 );
 
