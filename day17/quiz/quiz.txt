@@ -1,0 +1,263 @@
+1-In Express, what does the term "METHOD" refer to when defining routes?
+ 
+ 
+The type of HTTP request, such as GET or POST*****
+
+ 
+ 
+The middleware used in route handling
+
+ 
+ 
+The name of the route
+
+ 
+ 
+A function to handle HTTP requests
+////////////////////////////////////////
+What is the purpose of the callback function in an Express route?
+ 
+ 
+To create dynamic elements in the route
+
+ 
+ 
+To handle database connections
+
+ 
+ 
+To define the route path
+
+ 
+ 
+To execute when a request matches the specified method and path******************
+///////////////////////////////////////
+What does "Path" refer to in the context of Express?
+ 
+ 
+The file directory structure
+
+ 
+ 
+The HTTP method used in a route
+
+ 
+ 
+The URL pattern specifying the endpoint on the server***********
+
+ 
+ 
+A middleware function in Express
+
+///////////////////////////////////
+How can you retrieve the value of a route parameter in Express?
+ 
+ 
+Using the req.body object
+
+ 
+ 
+Using the req.query object
+
+ 
+ 
+Using the req.params object***********
+
+ 
+ 
+Using the res.send method
+//////////////////////////////////
+In the Express code snippet provided, what is the significance of the res.send() function?
+ 
+ 
+It manages user authentication
+
+ 
+ 
+It defines the route path
+
+ 
+ 
+It handles database connections
+
+ 
+ 
+It sends data as a response to the client*********
+//////////////////////////////////////////
+What does a static path in Express represent?
+ 
+ 
+A path that changes dynamically
+
+ 
+ 
+A path with variable values
+
+ 
+ 
+A fixed URL without variations**********
+
+ 
+ 
+A path for serving static files
+/////////////////////////////////////////
+What does the "Request" object in Express represent?
+ 
+ 
+The server's response to a client's HTTP request
+
+ 
+ 
+The incoming data and metadata from a client's HTTP request
+*************************
+ 
+ 
+The server's request for client data
+
+ 
+ 
+The client's request for server data
+////////////////////////////////
+What role do Express routes play in handling client requests in a web application?
+ 
+ 
+Managing database connections
+
+ 
+ 
+Handling authentication
+
+ 
+ 
+Mapping HTTP methods to functionalities************
+
+ 
+ 
+Displaying web pages
+////////////////////////////////////
+Which aspect of Express development is directly influenced by defining clear and structured paths?
+ 
+ 
+Server security
+
+ 
+ 
+Code readability and maintainability***********
+
+ 
+ 
+Database performance
+
+ 
+ 
+Client-side rendering
+
+//////////////////////////////////////
+Which aspect of Express routes is emphasized by including different HTTP methods like GET, POST, PUT, and DELETE?
+ 
+ 
+Simplifying the deployment process
+
+ 
+ 
+Ensuring compatibility with all browsers
+
+ 
+ 
+Improving server performance
+
+ 
+ 
+Defining specific functionalities for different types of client requests***************
+
+////////////////////////////////////////////
+
+What is the purpose of a dynamic path with route parameters in Express?
+ 
+ 
+To define a fixed URL
+
+ 
+ 
+To create a clear and structured way to handle requests
+
+ 
+ 
+To handle variable values in the URL**************
+
+ 
+ 
+To increase server performance
+/////////////////////////////////
+
+Which object is used to define routes in an Express application?
+ 
+ 
+port
+
+ 
+ 
+app*******************
+
+ 
+ 
+expressRoute
+
+ 
+ 
+route
+/////////////////////////////////////
+
+What information can be accessed using the req.headers object in Express?
+ 
+ 
+Data sent in the request body
+
+ 
+ 
+Query values from the client
+
+ 
+ 
+HTTP headers sent by the client*****************
+
+ 
+ 
+The path of the URL in the request
+//////////////////////////////////////////
+
+Why is it important to use routes in Express when building a web application?
+ 
+ 
+Routes are required for server deployment
+
+ 
+ 
+Routes are only necessary for static websites
+
+ 
+ 
+Routes improve website design
+
+ 
+ 
+Routes provide a structured and modular way to handle client requests*****************
+//////////////////////////////////////////////
+
+
+What is the primary purpose of the Response object in Express?
+ 
+ 
+To represent incoming data from the client
+
+ 
+ 
+To carry data or content sent back to the client**************
+
+ 
+ 
+To control the behavior of the server
+
+ 
+ 
+To handle query values in a request
