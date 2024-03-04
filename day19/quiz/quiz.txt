@@ -1,0 +1,726 @@
+1-Which function is used to create an instance of the router in Express.js?
+ 
+ 
+express.app()
+
+ 
+ 
+express.routerInstance()
+
+ 
+ 
+express.createRouter()
+
+ 
+ 
+express.Router()************
+/////////////////////////////////
+What prefix is usually added to all routes defined on the router?
+ 
+ 
+/main
+
+ 
+ 
+/api***********
+
+ 
+ 
+/routes
+
+ 
+ 
+/express
+//////////////////////////////
+What does MVC aim to avoid in terms of code concerns as the project grows?
+ 
+ 
+Code maintenance
+
+ 
+ 
+Code reusability
+
+ 
+ 
+Code separation
+
+ 
+ 
+Code duplication**********************
+/////////////////////////////////
+Why is Express Router considered a crucial component for building web applications?
+ 
+ 
+It enhances front-end performance
+
+ 
+ 
+ It simplifies database design
+
+ 
+ 
+ It organizes routes and middleware in a modular way****************
+
+ 
+ 
+It focuses on server security
+
+
+//////////////////////////////////
+In MVC, what does the Controller manage the communication between?
+ 
+ 
+Model and Controller
+
+ 
+ 
+View and Controller
+
+ 
+ 
+Model and View**********
+
+ 
+ 
+Database and Model
+/////////////////////////////
+Which component in MVC represents the data and business logic of the application?
+ 
+ 
+View
+
+ 
+ 
+Controller
+
+ 
+ 
+Model********
+
+ 
+ 
+Data
+/////////////////////////
+What is the role of Express Router when your project expands with multiple routes and middleware functions?
+ 
+ 
+It decreases the project's scalability
+
+ 
+ 
+It complicates the project structure
+
+ 
+ 
+ It promotes a modular and organized project structure***********
+
+ 
+ 
+t only works for small projects
+
+
+/////////////////////////////////////////
+
+How does Express Router contribute to maintaining a modular codebase?
+ 
+ 
+It automatically generates modular code
+
+ 
+ 
+It enforces strict code structure
+
+ 
+ 
+It allows encapsulation of related routes and middleware*******************
+
+ 
+ 
+It eliminates the need for middleware functions
+////////////////////////////////////
+What is the final step in integrating Express Router into the main Express application?
+ 
+ 
+Using router.attach()
+
+ 
+ 
+Using app.includeRouter()
+
+ 
+ 
+Using app.use()****************
+
+ 
+ 
+Using app.attachRouter()
+///////////////////////////////////////////
+What is the correct syntax to handle a GET request via Express Router?
+ 
+ 
+router.get()**************
+
+ 
+ 
+app.get()
+
+ 
+ 
+route.get()
+
+ 
+ 
+api.get()
+
+
+
+///////////////////evaluation///////////
+
+What is a Promise in the context of Node.js?
+ 
+ 
+A way to handle synchronous operations
+
+ 
+ 
+An object representing a potential future value or error*********
+
+ 
+ 
+A keyword to declare functions as asynchronous
+
+ 
+ 
+A guarantee that the code will run without errors
+//////////////////////////
+How can you exit the Node.js REPL?
+ 
+ 
+Press `Ctrl + D`***
+
+ 
+ 
+Press `Ctrl + C` * 2****
+
+ 
+ 
+Type `.exit`****
+
+ 
+ 
+Type `quit()`
+/////////////////////////////////////
+In which type of applications is event-driven architecture particularly beneficial?
+ 
+ 
+CPU-intensive applications with heavy computation
+
+ 
+ 
+Real-time applications such as chat applications or streaming services*********
+
+ 
+ 
+Applications that heavily rely on blocking I/O operations.
+
+ 
+ 
+Single-threaded applications with low concurrency requirements
+
+//////////////////////////////
+Which method is used to copy a file asynchronously using the fs module?
+ 
+ 
+fs.copy()
+
+ 
+ 
+fs.copyFile()**************
+
+ 
+ 
+fs.cloneFile()
+
+ 
+ 
+fs.duplicate()
+//////////////////////////////////////
+In Node.js, can an EventEmitter emit the same event multiple times?
+ 
+ 
+No, an event can only be emitted once
+
+ 
+ 
+Only if the EventEmitter is in "multi-event" mode
+
+ 
+ 
+Only if the event name is unique each time
+
+ 
+ 
+Yes, an event can be emitted multiple times*********************
+/////////////////////////////////
+Which method is used to rename a file or directory asynchronously using the fs module?
+ 
+ 
+fs.rewrite()
+
+ 
+ 
+fs.move()
+
+ 
+ 
+fs.rename()**********
+
+ 
+ 
+fs.modify()
+////////////////////////////////
+What is the purpose of the fs.stat() method?
+ 
+ 
+It checks the permissions of a file or directory
+
+ 
+ 
+It checks if a file or directory exists
+
+ 
+ 
+It retrieves information about a file or directory, such as its size and modification time*****************
+
+ 
+It reads the contents of a file or directory
+///////////////////////////
+What does the `node inspect` command do in Node.js?
+ 
+ 
+Deletes all code from the file
+
+ 
+ 
+Executes the code in production mode
+
+ 
+ 
+Runs the code without debugging
+
+ 
+ 
+Initiates the Node.js Inspector for debugging****
+//////////////////////////////
+Which method is used to send data as the response body in a Node.js HTTP server?
+ 
+ 
+`response.send()`
+
+ 
+ 
+`response.body()`
+
+ 
+ 
+`response.data()`
+
+ 
+ 
+`response.write()`**************
+////////////////////////////////////
+What does Express simplify in the process of web development?
+ 
+ 
+Client-side logic
+
+ 
+ 
+Server-side logic*********
+
+ 
+ 
+Database management
+
+ 
+ 
+Both client-side and server-side logic
+///////////////////////////////
+Which feature of promises helps avoid callback hell in Node.js?
+ 
+ 
+Error handling
+
+ 
+ 
+Global error handling
+
+ 
+ 
+Chaining*****
+
+ 
+ 
+Synchronous execution
+////////////////////////////////////
+Which of the following best describes asynchronous programming in Node.js?
+ 
+ 
+Making synchronous I/O operations
+
+ 
+ 
+Executing tasks concurrently and handling results with callbacks***********
+
+ 
+ 
+A technique that ensures all code runs in parallel for improved performance
+
+ 
+ 
+Blocking the execution of other code
+
+///////////////////////////////
+
+What is event-driven architecture?
+ 
+ 
+A technique for handling synchronous operations in Node.js
+
+ 
+ 
+A programming paradigm that uses events and event handlers**********
+
+ 
+ 
+A design pattern for creating user interfaces
+
+ 
+ 
+A programming paradigm where all code is executed sequentially from top to bottom.
+//////////////////////////////////
+In Node.js, how can you create an instance of an EventEmitter?
+ 
+ 
+Using the 'createEventEmitter()' function
+
+ 
+ 
+Directly invoking the' EventEmitter 'class**********
+
+ 
+ 
+There is no need to create an instance; it's a singleton
+
+ 
+ 
+Using the 'new Event()' constructor
+//////////////////////
+Which programming technique ensures blocking execution of code in Node.js?
+ 
+ 
+Asynchronous programming
+
+ 
+ 
+Synchronous programming*************
+
+ 
+ 
+Promises
+
+ 
+ 
+Concurrent programming
+
+/////////////////////////
+Node.js provides the http module to create both HTTP clients and servers.
+ 
+ 
+False
+
+ 
+ 
+True***********
+///////////////////////////////////
+Which core module in Node.js provides the EventEmitter class?
+ 
+ 
+http
+
+ 
+ 
+events*********
+
+ 
+ 
+util
+
+ 
+ 
+fs
+////////////////////////////
+What does the fs.readdir() method do?
+ 
+ 
+ It reads a file asynchronously and returns its metadata
+
+ 
+ 
+It reads a file synchronously
+
+ 
+ 
+It reads a directory synchronously and returns a list of its subdirectories
+
+ 
+ 
+It reads a directory asynchronously and returns a list of its contents**********
+/////////////////////////////
+Which of the following is a common use case for using Promises?
+ 
+ 
+Parallel execution of tasks**********
+
+ 
+ 
+Real-time event handling
+
+ 
+ 
+CPU-intensive calculations
+
+ 
+ 
+Synchronous file reading
+////////////////////////////
+Which object is used to define routes in an Express application?
+ 
+ 
+port
+
+ 
+ 
+app******
+
+ 
+ 
+route
+
+ 
+ 
+expressRoute
+////////////////////////////////
+What does the response.statusCode property indicate in an HTTP response?
+ 
+ 
+The HTTP status code of the response************
+
+ 
+ 
+The request method used by the client
+
+ 
+ 
+The version of the HTTP protocol
+
+ 
+ 
+The status message associated with the status code
+/////////////////////
+What is the purpose of using modules in Node.js?
+ 
+ 
+To organize and structure the code********
+
+ 
+ 
+To increase code duplication
+
+ 
+ 
+To increase code complexity by merging all functions into a single file.
+
+ 
+ 
+To make the code more complex
+/////////////////////////////
+Can middleware functions have asynchronous operations, such as database queries or API calls?
+ 
+ 
+Yes, middleware functions can contain asynchronous operations*******************
+
+ 
+ 
+No, middleware functions must be synchronous
+
+ 
+ 
+Yes, but only for error handling
+
+ 
+ 
+No, asynchronous operations are not supported in middleware
+/////////////////////////////////
+What is the purpose of a dynamic path with route parameters in Express?
+ 
+ 
+To define a fixed URL
+
+ 
+ 
+To create a clear and structured way to handle requests
+
+ 
+ 
+To handle variable values in the URL*******
+
+ 
+ 
+To increase server performance
+////////////////////////////////////
+Which function is used to create an instance of the router in Express.js?
+ 
+ 
+express.app()
+
+ 
+ 
+express.routerInstance()
+
+ 
+ 
+express.createRouter()
+
+ 
+ 
+express.Router()**********
+///////////////////////////////////
+How do you register an event listener for the line event using the readline interface?
+ 
+ 
+`rl.emit('line', callback);`
+
+ 
+ 
+`rl.addEventListener('line', callback);`
+
+ 
+ 
+`rl.attachEvent('line', callback);`
+
+ 
+ 
+`rl.on('line', callback);`*********
+////////////////////////////////
+The HTTP server can only handle one request at a time due to Node.js's single-threaded nature.
+ 
+ 
+False.
+
+Node.js's single-threaded nature does not limit an HTTP server to handling only one request at a time. Node.js is capable of handling multiple requests concurrently through its asynchronous, event-driven architecture. While Node.js uses a single-threaded event loop to manage asynchronous operations, it can handle multiple concurrent connections efficiently, making it suitable for building high-performance servers.
+///////////////////////////////
+
+Which module is used for handling asynchronous operations in a more readable manner?
+ 
+ 
+sync
+
+ 
+ 
+callback
+
+ 
+ 
+async***
+
+ 
+ 
+promise
+
+/////////////////////////////
+Which method is used to output messages to the console for debugging purposes?
+ 
+ 
+`print()`
+
+ 
+ 
+`log()`***********
+
+ 
+ 
+`debug()`
+
+ 
+ 
+`message()`
+/////////////////////////////////
+How can you emit an event with data to be passed to the listeners?
+ 
+ 
+emitEvent('eventName', data)
+
+ 
+ 
+emit('eventName', data)**************
+
+ 
+ 
+fireEvent('eventName', data)
+
+ 
+ 
+trigger('eventName', data)
+////////////////////////////
+What does the http.createServer() method return?
+ 
+ 
+A Promise
+
+ 
+ 
+An instance of the Server class***********
+
+ 
+ 
+A Response object
+
+ 
+ 
+A  Request object.
+//////////////////////////////
+What is the purpose of a REPL in Node.js?
+ 
+ 
+To compile TypeScript code
+
+ 
+ 
+To create graphical user interfaces
+
+ 
+ 
+To execute JavaScript code interactively***
+
+ 
+ 
+To manage databases
+///////////////////////////
+Can you use multiple middleware functions in a single route in Express.js?
+ 
+ 
+No, it's not possible
+
+ 
+ 
+Yes, but only for error handling
+
+ 
+ 
+Yes, you can stack multiple middleware functions*****************
+
+ 
+ 
+Yes, but only for get methods
