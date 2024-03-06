@@ -1,0 +1,70 @@
+*css resete => an easy solution to simply zero out everything and remove all of that default styling.
+/////////////////////////////////////////
+
+//child sibling selector 
+
+////////////////////////////////
+
+<!-- Html Child Element-->
+<div class="container">
+  <p>This paragraph is a direct child of the div with class 'container'.</p>
+  <span>This span is also a child of the div, but not targeted by the child selector.</span>
+  <div>
+    <p>This paragraph is not targeted because it's not a direct child.</p>
+  </div>
+</div>
+
+
+/* Child Selector: Styles all paragraphs (p) inside a div element with the class "container" */
+
+.container > p {
+  color: blue;
+  font-family: Arial, sans-serif;
+}
+
+////////////////////////////////////
+
+<!-- Html Adjacent Element-->
+
+<h1>Heading 1</h1>
+<h2>This h2 is an adjacent sibling to h1 and is styled differently.</h2>
+<p>Another paragraph, not affected by the adjacent sibling selector.</p>
+
+/* Adjacent Sibling Selector: Styles all headings (h2) that immediately follow an h1 heading */
+
+h1 + h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+/////////////////////////////////////
+
+<div class="highlight">Highlighted content</div>
+<p>This paragraph is a general sibling of the div and will be styled.</p>
+<p>This second paragraph is also a general sibling of the div and will be styled.</p>
+
+/* General Sibling Selector: Styles all paragraphs (p) that come after a div element with the class "highlight" */
+
+.highlight ~ p {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+////////////////////////////////////////////
+
+<div class="container">
+  <p>This paragraph is a descendant of .container.</p>
+  <section>
+    <p>This paragraph is also a descendant of .container, but nested deeper.</p>
+  </section>
+</div>
+
+.container p {
+  color: green;
+}
+////////////////////////////////////////////
+Pseudo-classes & Pseudo-elements
+
+=>:hover , :focus , :nth-child , ::before , ::after
+
