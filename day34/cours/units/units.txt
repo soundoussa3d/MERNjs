@@ -1,0 +1,6 @@
+types of css units:
+=>pixels (px) : used for sizing and positioning 
+=>percentage ( %) : creating flexible layouts that adapt to different screen sizes
+=>Ems (em) : used in the font size 
+=>Rems (rem) : used in the font size 
+

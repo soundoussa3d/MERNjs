@@ -1,0 +1,6 @@
+types od css positioning
+=>Static positioning : used for elements that should follow the normal flow 
+=>Relative positioning : used to move an element slightly to the left or right 
+=>Absolute positioning :used to place an elemetn in a specific position
+=>fixed positioning:
+=>sticky positioning : conbines fixed and Relative positioning
