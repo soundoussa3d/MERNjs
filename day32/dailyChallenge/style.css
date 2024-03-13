@@ -25,6 +25,7 @@ input:focus{
    background-color: black;
     
 }
+
 .button{
     background-color: rgb(255, 116, 23);
     color: white;
@@ -192,6 +193,8 @@ a{
 .view_all{
     float: right;
     margin-right: 20%;
+    margin-top: -3%;
+    color: white;
     
 }
 .trending{
@@ -202,6 +205,16 @@ a{
 .row{
     display: flex;
     margin-bottom: 2%;
+    margin-left: 4%;
+}
+
+.content-box {
+    box-sizing: content-box; /* Default value, padding and border added to the width and height */
+  }
+.buttons{
+    margin-left: 46%;
+    width: 20%;
+    padding-bottom: 2%;
 }
 
 .footer {
