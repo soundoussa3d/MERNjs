@@ -1,0 +1,35 @@
+types of css layouts
+=>block layout :follow a verticle flow one after the other
+=>FlexBox:
+=>Grid layout : devides the page into a grid of cells 
+=>css tables :
+
+
+css FlexBox:
+=>flex-direction 
+-->row
+-->column
+-->row-reverse
+-->column-reverse
+
+=>align-items
+-->flex-start
+-->center
+-->flex-end
+-->stretch
+
+=>justify-content
+-->flex-start
+-->center
+-->flex-end
+-->space-between
+-->space-around
+-->space-evenly
+
+=>align-content
+-->flex-start
+-->center
+-->flex-end
+-->stretch
+-->space-between
+-->space-around

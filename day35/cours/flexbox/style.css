@@ -1,0 +1,19 @@
+.flex-nav {
+    display: flex;
+    justify-content: space-around; /* Distributes space evenly around items */
+    align-items: center; /* Vertically align items in the middle */
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+  
+  .nav-item:hover {
+    background-color: #555; /* Change background on hover */
+  }
