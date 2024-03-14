@@ -1,0 +1,25 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Creates consistent spacing between items */
+  }
+  
+  .product-item {
+    flex: 1 0 200px; /* Flexibility with a base width of 200px */
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .featured-product {
+    flex-grow: 2; /* Allows the featured product to take up more space */
+    background-color: #ffd700; /* Highlights the featured product */
+    order: -1; /* Places the featured product at the beginning */
+  }
+  
+  @media screen and (max-width: 600px) {
+    .product-item, .featured-product {
+      flex: 1 0 100%; /* Stack items vertically on smaller screens */
+    }
+  }
