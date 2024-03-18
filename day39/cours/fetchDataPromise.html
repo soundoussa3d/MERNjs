@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="userData">
+        <p>User information will appear here...</p>
+      </div>
+      <button id="fetchUser">Fetch User Data</button>
+    <script>
+        document.getElementById('fetchUser').addEventListener('click', function() {
+            fetch('https://api.example.com/users/1')
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(data => {
+                document.getElementById('userData').innerHTML = `
+                  <p>Name: ${data.name}</p>
+                  <p>Email: ${data.email}</p>
+                  <p>Location: ${data.location}</p>
+                `;
+              })
+              .catch(error => console.error('There was an error:', error));
+          });
+    </script>
+</body>
+</html>

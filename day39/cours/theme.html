@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary-color: blue;
+            --background-color: white;
+            --text-color: black;
+          }
+          
+          .dark-theme {
+            --background-color: #333;
+            --text-color: white;
+          }
+          
+          .light-theme {
+            --background-color: #fff;
+            --text-color: black;
+          }
+          
+          body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+          }
+    </style>
+</head>
+<body>
+    <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    <script>
+        const themeSelector = document.getElementById('themeSelector');
+        themeSelector.addEventListener('change', (event) => {
+        const theme = event.target.value;
+        document.body.className = ""; // Reset any previous theme class
+        document.body.classList.add(`${theme}-theme`);
+        });
+    </script>
+</body>
+</html>

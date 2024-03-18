@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="comments">
+        <p>Comment 1</p>
+        <p>Comment 2</p>
+      </div>
+      <button id="add-comment-btn">Add Comment</button>
+    <script>
+        document.getElementById('add-comment-btn').addEventListener('click', function() {
+            const newComment = document.createElement('p');
+            newComment.textContent = 'New dynamically added comment!';
+            document.getElementById('comments').appendChild(newComment);
+          });
+    </script>
+</body>
+</html>

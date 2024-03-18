@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <p>This is some text to adjust the font size for better readability.</p>
+      </div>
+      <button id="increaseFont">Increase Font Size</button>
+      <button id="decreaseFont">Decrease Font Size</button>
+    <script>
+        const content = document.getElementById('content');
+        const increaseFont = document.getElementById('increaseFont');
+        const decreaseFont = document.getElementById('decreaseFont');
+        let fontSize = 16; // Default font size
+
+        increaseFont.addEventListener('click', () => {
+        fontSize += 1;
+        content.style.fontSize = `${fontSize}px`;
+        });
+
+        decreaseFont.addEventListener('click', () => {
+        fontSize -= 1;
+        content.style.fontSize = `${fontSize}px`;
+        });
+    </script>
+</body>
+</html>

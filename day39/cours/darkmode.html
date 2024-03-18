@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+          }
+          
+          body.light-mode {
+            background-color: white;
+            color: black;
+          }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+    <div id="content">
+    <p>This is some text to demonstrate dark mode.</p>
+    </div>
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+
+        toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+        });
+    </script>
+</body>
+</html>

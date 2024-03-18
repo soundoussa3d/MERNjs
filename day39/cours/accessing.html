@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent-element">
+        Parent
+        <div id="myElement">Child 1 (Target Element)</div>
+        <div>Child 2</div>
+        <div>Child 3</div>
+      </div>
+    <script>
+        // Get the parent element of an element with ID "myElement"
+        let parentElement = document.getElementById('myElement').parentNode;
+
+        // Get all child nodes of the parent element
+        let childNodes = parentElement.childNodes;
+
+        // Get the next sibling of the parent element (if it exists)
+        let nextSibling = parentElement.nextSibling;
+    </script>
+</body>
+</html>

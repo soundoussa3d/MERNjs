@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="dynamic-form">
+        <div class="input-container">
+          <input type="text" name="field1" placeholder="Enter something...">
+        </div>
+        <button type="button" id="add-field">Add Field</button>
+        <button type="button" id="remove-field">Remove Field</button>
+      </form>
+    <script>
+        const form = document.getElementById('dynamic-form');
+        const addFieldButton = document.getElementById('add-field');
+        const removeFieldButton = document.getElementById('remove-field');
+
+        addFieldButton.addEventListener('click', () => {
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.placeholder = 'Enter something...';
+        form.querySelector('.input-container').appendChild(newInput);
+        });
+
+        removeFieldButton.addEventListener('click', () => {
+        const inputContainer = form.querySelector('.input-container');
+        if (inputContainer.children.length > 1) {
+            inputContainer.removeChild(inputContainer.lastChild);
+        }
+        });
+    </script>
+</body>
+</html>

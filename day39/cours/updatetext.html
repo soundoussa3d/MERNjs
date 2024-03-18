@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-heading">Original Heading</h1>
+    <button id="change-heading-btn">Change Heading</button>
+    <script>
+        document.getElementById('change-heading-btn').addEventListener('click', function() {
+            document.getElementById('main-heading').textContent = 'Updated Heading!';
+          });
+    </script>
+</body>
+</html>
