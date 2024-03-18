@@ -1,0 +1,35 @@
+.p1 {
+    color: red; /* Ignored due to inline style's higher specificity */
+  }
+
+  .important-box {
+    color: red;
+  }
+  
+  #my-box {
+    color: blue; /* Wins due to higher specificity of ID */
+  }
+
+  .highlight {
+    font-weight: bold;
+  }
+  
+  .warning {
+    color: red;
+  }
+
+  a {
+    color: blue;
+  }
+  
+  a[href] { /* Targets all links with a href attribute */
+    color: green; /* Wins due to higher specificity */
+  }
+  
+  .button {
+    color: orange;
+  }
+
+  #main-text {
+    color: purple; /* Ignored due to inline style's dominance */
+  }

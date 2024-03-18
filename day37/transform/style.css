@@ -1,0 +1,20 @@
+/* Container styling */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
+  }
+  
+  /* Card styling */
+  .card {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the transform */
+  }
+  
+  /* Hover effect using CSS Transform */
+  .card:hover {
+    transform: scale(1.1); /* Scale the card up to 110% of its original size */
+  }

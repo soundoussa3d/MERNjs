@@ -1,0 +1,33 @@
+:root {
+    /* Define CSS variables */
+    --primary-color: #4CAF50;
+    --secondary-color: #FFFFFF;
+    --font-family: 'Arial', sans-serif;
+    --padding: 10px;
+    --border-radius: 5px;
+}
+
+body {
+    font-family: var(--font-family);
+    padding: var(--padding);
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--padding);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: var(--font-family);
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+p {
+    padding: var(--padding);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+}
