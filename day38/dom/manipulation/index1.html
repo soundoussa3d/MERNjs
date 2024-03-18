@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="dynamic-form">
+        <button type="button" id="add-input">Add Input</button>
+        <input type="submit" value="Submit">
+      </form>
+
+      <script>
+        document.getElementById('add-input').addEventListener('click', function() {
+            const form = document.getElementById('dynamic-form');
+            const newInput = document.createElement('input');
+            newInput.setAttribute('type', 'text');
+            newInput.setAttribute('name', 'dynamicInput[]');
+            form.insertBefore(newInput, this);
+          });
+      </script>
+</body>
+</html>

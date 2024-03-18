@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="show-notification">Show Notification</button>
+    <script>
+        document.getElementById('show-notification').addEventListener('click', function() {
+            const notification = document.createElement('div');
+            notification.textContent = 'This is a temporary notification.';
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '20px';
+            notification.style.backgroundColor = 'lightblue';
+            notification.style.padding = '10px';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+              notification.remove();
+            }, 4000); // Remove after 3 seconds
+          });
+    </script>
+</body>
+</html>

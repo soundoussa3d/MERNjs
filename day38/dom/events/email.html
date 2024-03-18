@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="emailInput">Email:</label>
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <div id="emailFeedback" style="color: red;"></div>
+    <script>
+        var emailInput = document.getElementById("emailInput");
+        var emailFeedback = document.getElementById("emailFeedback");
+
+        emailInput.addEventListener("input", function() {
+        // Simple email pattern check
+        var emailPattern = /\S+@\S+\.\S+/;
+        if (emailPattern.test(emailInput.value)) {
+            emailFeedback.textContent = "Email looks good!";
+            emailFeedback.style.color = "green";
+        } else {
+            emailFeedback.textContent = "Please enter a valid email address.";
+            emailFeedback.style.color = "red";
+        }
+        });
+    </script>
+</body>
+</html>

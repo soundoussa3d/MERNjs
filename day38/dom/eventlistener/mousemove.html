@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mouseArea" style="width: 400px; height: 200px; background-color: #ddd;">
+     Move your mouse here!
+     <p id="mousePosition"></p>
+    </div>
+    <script>
+        const mouseArea = document.getElementById('mouseArea');
+        const mousePositionDisplay = document.getElementById('mousePosition');
+
+        mouseArea.addEventListener('mousemove', function(event) {
+        const x = event.offsetX;
+        const y = event.offsetY;
+        mousePositionDisplay.textContent = `Mouse position: X: ${x}, Y: ${y}`;
+        });
+    </script>
+</body>
+</html>

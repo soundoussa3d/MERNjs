@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="toggleButton">Toggle Visibility</button>
+    <div id="toggleContent" style="display: none;">
+    This content can be shown or hidden.
+    </div>
+    <script>
+        // Get references to the button and the content
+        var button = document.getElementById("toggleButton");
+        var content = document.getElementById("toggleContent");
+
+        // Add an event listener for the "click" event
+        button.addEventListener("click", function() {
+        // Check the current display style of the content
+        if (content.style.display === "none") {
+            // If the content is hidden, show it
+            content.style.display = "block";
+        } else {
+            // If the content is shown, hide it
+            content.style.display = "none";
+        }
+        });
+    </script>
+</body>
+</html>

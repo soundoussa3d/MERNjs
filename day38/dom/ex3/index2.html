@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mainImage">
+        <img src="img/1.jpg" alt="Gallery Image" width="50%" >
+      </div>
+      <div class="thumbnails">
+        <img src="img/ecommerce.png" alt="Thumbnail 1" data-fullsize="image1.jpg" width="50%">
+        <img src="img/projetjs.png" alt="Thumbnail 2" data-fullsize="image2.jpg" width="50%"    >
+        <!-- Add more thumbnails as needed -->
+      </div>
+      <script>
+        document.querySelectorAll('.thumbnails img').forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+              const mainImage = document.querySelector('#mainImage img');
+              mainImage.src = thumbnail.getAttribute('data-fullsize');
+            });
+          });
+      </script>
+</body>
+</html>
