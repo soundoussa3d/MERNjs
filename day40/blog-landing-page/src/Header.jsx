@@ -12,7 +12,7 @@ function Header() {
                     <li>Cantact</li>
                 </ul>
             </nav>
-            <h1>
+            <h1 className="h1-header">
                 Blog 1
             </h1>
         </header>
