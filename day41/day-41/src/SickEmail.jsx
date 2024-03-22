@@ -17,7 +17,7 @@ function SickEmail() {
 
     function p2() {
         return (
-        <p className="p2">
+        <p className="p2" >
         Unfortunately, I developed a stomach bug that has made it very difficult to get work done.
         </p>
         )
