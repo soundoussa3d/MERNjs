@@ -2,42 +2,71 @@ import { useState } from "react";
 
 //import React from 'react'
 
+//onClick={()=>updatePosts(post.id,updated)}
 function MainContent(props) {
+  //pop up form 
+  const [formData, setFormData] = useState({
+    id: null,
+    title: "",
+    description: ""
+  });
+  const [seen, setSeen] = useState(false);
+  const [seen1, setSeen1] = useState(false);
+  function togglePop(post) {
+    setFormData({
+      id: post.id,
+      title: post.title,
+      description: post.description
+    });
+    setSeen(!seen);
+  }
+  function togglePop1() {
+    setFormData({
+      id: posts.length+1,
+      title: '',
+      description: ''
+    });
+    setSeen1(!seen1);
+  }
+  function handleUpdate(e) {
+    e.preventDefault();
+    const { id, title, description } = formData;
+    updatePosts(id, title, description);
+    setSeen(false);
+  }
+  function handleAdd(e) {
+    e.preventDefault();
+    addPosts(formData);
+    setSeen1(false);
+  }
+  //
   const [posts,setPosts] = useState(props.posts);
   var len=posts.length;
-  const post1 = {
-    id:5,
-    title:'title blog 7',
-    description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 777' 
-  };
      function addPosts(post) {
       setPosts([
           ...posts , post
         ]);
-      console.log(posts);
      }
      function deletePost(id) {
       const posts_del=posts.filter(post=>post.id!==id)
       setPosts(posts_del);
       console.log(posts);
      }
-     const updated = { 
-      title:'title blog 1 hello',
-      description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 111 hello' 
-    }
-     function updatePosts(id,post_updated) {
-      const post_found=posts.find(post=>post.id==id);
-    
-      setPosts({
-        ...post , 
-        
+
+     function updatePosts(id,title,description) {
+      const modifiedPosts = posts.map(post => {
+        if (post.id === id) {
+            return { ...post, title: title , description: description };
+        }
+        return post;
       });
+      setPosts(modifiedPosts);
       
     }
 
   return (
     <div>
-      <button className="btn1" onClick={()=>addPosts(post1)}>Add post</button>
+      <button className="btn1" onClick={()=>togglePop1()}>Add post</button>
 
       {len>0 ? posts.map((post , index) =>{
         return (
@@ -48,12 +77,85 @@ function MainContent(props) {
             <p className="p">
             {post.description}
             </p>
-            <button className="btn1" onClick={()=>updatePosts(post.id)}>Update post</button>
-            <button className="btn1" onClick={()=>deletePost(post.id,updated)}>Delete post</button>
+            <button onClick={()=>togglePop(post)}>Update post</button>
+            <button className="btn1" onClick={()=>deletePost(post.id)}>Delete post</button>
           </div>
         );
       }) : <div >No posts available</div>}
-        
+        {seen && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2>Update post</h2>
+            <form onSubmit={handleUpdate}>
+              <label>
+                Title:
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      title: e.target.value
+                    })
+                  }
+                />
+              </label>
+              <label>
+                Description:
+                <input
+                  type="text"
+                  value={formData.description}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      description: e.target.value
+                    })
+                  }
+                />
+              </label>
+              <button type="submit">Update</button>
+            </form>
+            <button onClick={() => setSeen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+      {seen1 && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2>Add post</h2>
+            <form onSubmit={handleAdd}>
+              <label>
+                Title:
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      title: e.target.value
+                    })
+                  }
+                />
+              </label>
+              <label>
+                Description:
+                <input
+                  type="text"
+                  value={formData.description}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      description: e.target.value
+                    })
+                  }
+                />
+              </label>
+              <button type="submit">Add</button>
+            </form>
+            <button onClick={() => setSeen1(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
