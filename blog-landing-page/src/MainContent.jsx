@@ -42,10 +42,10 @@ function MainContent(props) {
   //
   const [posts,setPosts] = useState(props.posts);
   var len=posts.length;
-     function addPosts(post) {
-      setPosts([
-          ...posts , post
-        ]);
+  function addPosts(post) {
+  setPosts([
+      ...posts , post
+  ]);
      }
      function deletePost(id) {
       const posts_del=posts.filter(post=>post.id!==id)

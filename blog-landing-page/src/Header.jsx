@@ -1,5 +1,7 @@
 //import React from 'react'
 
+import LoginForm from "./LoginForm";
+
 function Header(props) {
   return (
     <div className="head">
@@ -16,7 +18,7 @@ function Header(props) {
             
             </ul>
             <span className="navbar-text">
-            {props.isLogged ? <button type="button" className="btn btn-dark">Logout</button> :<button type="button" className="btn btn-dark">Login</button> }
+            {props.isLogged ? <button type="button" className="btn btn-dark">Logout</button> :<button type="button" className="btn btn-dark" onClick={()=><LoginForm data={props} />}>Login</button> }
             </span>
         </div>
         </nav>

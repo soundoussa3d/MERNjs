@@ -3,8 +3,17 @@ import MainContent from './MainContent'
 import Footer from './Footer'
 import './App.css'
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
 
 function App() {
+  const [users,setUsers]=useState([{ email:'soundous@gmail.com' , 
+  name:'soundous',
+  password: 'soundous'},
+  { email:'soundous1@gmail.com' , 
+  namme:'soundous1',
+  password: 'soundous1'}]);
   const links =['#home', '#about', '#services','#contact'];
   const lis =['Home', 'About', 'Services','Contact'];
   const title = "Blog App";
@@ -33,17 +42,21 @@ function App() {
    ];
 
     //const posts2=[];
-    const isLoggedIn = true;
+    const isLoggedIn = false;
     const color ="red";
 
-    
-    
-    
   return (
     <>
-     <Header title={title} links={links} lis={lis} isLogged={isLoggedIn}/>
-     <MainContent posts={posts1} color={color}/>
-     <Footer/>
+     <Header title={title} links={links} lis={lis} isLogged={isLoggedIn} users={users}/>
+           
+     
+
+     <Routes>
+      <Route path="/" element={<MainContent posts={posts1} color={color}/>} />
+      <Route path="/login" element={<LoginForm  users={users}/>} />
+      <Route path="/signup" element={<SignUpForm  users={users}/>} />
+    </Routes>
+    <Footer/>
     </>
   )
 }
