@@ -5,6 +5,7 @@ import { z } from 'zod' ;
 import MainContent from './MainContent';
 import { useState } from 'react';
 import SignUpForm from './SignUpForm';
+import Home from './pages/Home';
 
 const schema = z.object({ 
     email:z.string().email(),
@@ -25,8 +26,8 @@ function LoginForm(props) {
       if (submitted) {
         
         return <div>
-          <Header title={props.data.title} links={props.data.links} lis={props.data.lis} isLogged="true" users={props.data.users}/>
-          <MainContent posts={props.posts} color={props.color}/></div>;
+          <Home posts={props.data.posts} color={props.data.color} title={props.data.title} links={props.data.links} lis={props.data.lis} isLogged='true'/>
+          </div>;
       }
 
 

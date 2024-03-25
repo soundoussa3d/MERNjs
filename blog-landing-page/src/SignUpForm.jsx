@@ -2,9 +2,9 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod' ;
 import { z } from 'zod' ;
-import MainContent from './MainContent';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
+import Login from './pages/Login';
 
 const schema = z.object({ 
     email:z.string().email(),
@@ -34,7 +34,7 @@ function SignUpForm(props) {
         setSubmitted(false);
       } 
       if (submitted) {
-        return <LoginForm posts={props.posts} color={props.color} users={users} />;
+        return <LoginForm data={props.data}  />;
       }
 
 

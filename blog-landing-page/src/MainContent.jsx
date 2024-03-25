@@ -41,7 +41,7 @@ function MainContent(props) {
   }
   //
   const [posts,setPosts] = useState(props.posts);
-  var len=posts.length;
+  var len=props.posts.length;
   function addPosts(post) {
   setPosts([
       ...posts , post

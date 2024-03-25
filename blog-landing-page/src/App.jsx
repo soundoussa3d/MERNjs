@@ -6,6 +6,9 @@ import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 function App() {
   const [users,setUsers]=useState([{ email:'soundous@gmail.com' , 
@@ -47,14 +50,10 @@ function App() {
 
   return (
     <>
-     <Header title={title} links={links} lis={lis} isLogged={isLoggedIn} users={users}/>
-           
-     
-
      <Routes>
-      <Route path="/" element={<MainContent posts={posts1} color={color}/>} />
-      <Route path="/login" element={<LoginForm  users={users}/>} />
-      <Route path="/signup" element={<SignUpForm  users={users}/>} />
+      <Route path="/" element={<Home posts={posts1} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/> } />
+      <Route path="/login" element={<Login  users={users} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/>} />
+      <Route path="/signup" element={<Signup  users={users} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/>} />
     </Routes>
     <Footer/>
     </>
