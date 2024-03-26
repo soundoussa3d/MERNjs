@@ -1,7 +1,7 @@
 //import React from 'react'
 
 import LoginForm from "./LoginForm";
-
+import ThemeSwitcher from './themeSwitch/ThemeSwitcher';
 function Header(props) {
   return (
     <div className="head">
@@ -19,6 +19,7 @@ function Header(props) {
             </ul>
             <span className="navbar-text">
             {props.isLogged ? <button type="button" className="btn btn-dark">Logout</button> :<button type="button" className="btn btn-dark" onClick={()=><LoginForm data={props} />}>Login</button> }
+            <ThemeSwitcher/>
             </span>
         </div>
         </nav>

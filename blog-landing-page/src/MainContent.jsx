@@ -77,8 +77,8 @@ function MainContent(props) {
             <p className="p">
             {post.description}
             </p>
-            <button onClick={()=>togglePop(post)}>Update post</button>
-            <button className="btn1" onClick={()=>deletePost(post.id)}>Delete post</button>
+            <button className="btn3" onClick={()=>togglePop(post)}>Update post</button>
+            <button className="btn2" onClick={()=>deletePost(post.id)}>Delete post</button>
           </div>
         );
       }) : <div >No posts available</div>}

@@ -1,14 +1,11 @@
-import Header from './Header'
-import MainContent from './MainContent'
 import Footer from './Footer'
 import './App.css'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
-import LoginForm from './LoginForm'
-import SignUpForm from './SignUpForm'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+
 
 function App() {
   const [users,setUsers]=useState([{ email:'soundous@gmail.com' , 
@@ -49,14 +46,14 @@ function App() {
     const color ="red";
 
   return (
-    <>
+    <div >
      <Routes>
       <Route path="/" element={<Home posts={posts1} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/> } />
       <Route path="/login" element={<Login  users={users} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/>} />
       <Route path="/signup" element={<Signup  users={users} color={color} title={title} links={links} lis={lis} isLogged={isLoggedIn}/>} />
     </Routes>
     <Footer/>
-    </>
+    </div>
   )
 }
 

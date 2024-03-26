@@ -1,5 +1,3 @@
-
-
 import './App.css'
 import Counter from './Counter'
 import MyComponent from './themeSwitch/MyComponent';

@@ -27,7 +27,7 @@ footer {
 .main{
   width: 50%;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid rgb(168, 157, 157);
   margin-left: 20%;
   padding: 2%;
   margin-bottom: 2%;
@@ -46,11 +46,21 @@ footer {
 }
 .btn{
  border: 2px solid white;
-  margin-left: 800%;
+  margin-left: 300%;
 }
 .btn1{
   border: 2px solid white;
    margin-left: 88%;
+   margin-top: 2%;
+ }
+ .btn2{
+  border: 2px solid white;
+   margin-left: 50%;
+   margin-top: -10%;
+ }
+ .btn3{
+  border: 2px solid white;
+   margin-left: 20%;
    margin-top: 2%;
  }
 .h1{
