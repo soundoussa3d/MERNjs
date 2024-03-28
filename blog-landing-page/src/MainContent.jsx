@@ -1,62 +1,90 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 //import React from 'react'
 
 //onClick={()=>updatePosts(post.id,updated)}
 function MainContent(props) {
+  const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const fetchPosts = async () => {
+        try {
+          let response = await fetch("http://127.0.0.1:8000/blogs");
+          //console.log( response.json());
+          let p = await response.json();
+          //console.log(p);
+          setPosts(p);
+          //console.log(posts);
+        } catch (error) {
+          setError(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      useEffect(() => {
+        fetchPosts();
+      }, []);
+
+  var len=posts.length;
+  
   //pop up form 
   const [formData, setFormData] = useState({
-    id: null,
+    _id: null,
     title: "",
-    description: ""
+    content: ""
   });
+
   const [seen, setSeen] = useState(false);
   const [seen1, setSeen1] = useState(false);
+
   function togglePop(post) {
     setFormData({
-      id: post.id,
+      _id: post.id,
       title: post.title,
-      description: post.description
+      content: post.content
     });
     setSeen(!seen);
   }
   function togglePop1() {
     setFormData({
-      id: posts.length+1,
+      _id: posts.length+1,
       title: '',
-      description: ''
+      content: ''
     });
     setSeen1(!seen1);
   }
   function handleUpdate(e) {
     e.preventDefault();
-    const { id, title, description } = formData;
-    updatePosts(id, title, description);
+    const { id, title, content } = formData;
+    updatePosts(id, title, content);
     setSeen(false);
   }
   function handleAdd(e) {
     e.preventDefault();
+    //console.log(formData)
     addPosts(formData);
     setSeen1(false);
   }
   //
-  const [posts,setPosts] = useState(props.posts);
-  var len=props.posts.length;
+  
   function addPosts(post) {
+    //console.log(post)
   setPosts([
       ...posts , post
   ]);
+    //console.log(posts);
      }
      function deletePost(id) {
-      const posts_del=posts.filter(post=>post.id!==id)
+      const posts_del=posts.filter(post=>post._id!==id)
       setPosts(posts_del);
       console.log(posts);
      }
 
-     function updatePosts(id,title,description) {
+     function updatePosts(id,title,content) {
       const modifiedPosts = posts.map(post => {
-        if (post.id === id) {
-            return { ...post, title: title , description: description };
+        if (post._id == id) {
+            return { ...post, title: title , content: content };
         }
         return post;
       });
@@ -75,10 +103,10 @@ function MainContent(props) {
             {post.title}
             </h1>
             <p className="p">
-            {post.description}
+            {post.content}
             </p>
             <button className="btn3" onClick={()=>togglePop(post)}>Update post</button>
-            <button className="btn2" onClick={()=>deletePost(post.id)}>Delete post</button>
+            <button className="btn2" onClick={()=>deletePost(post._id)}>Delete post</button>
           </div>
         );
       }) : <div >No posts available</div>}
@@ -104,11 +132,11 @@ function MainContent(props) {
                 Description:
                 <input
                   type="text"
-                  value={formData.description}
+                  value={formData.content}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      description: e.target.value
+                      content: e.target.value
                     })
                   }
                 />
@@ -141,11 +169,11 @@ function MainContent(props) {
                 Description:
                 <input
                   type="text"
-                  value={formData.description}
+                  value={formData.content}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      description: e.target.value
+                      content: e.target.value
                     })
                   }
                 />
