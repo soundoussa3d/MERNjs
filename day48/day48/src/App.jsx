@@ -1,5 +1,5 @@
 import './App.css'
-import Counter from './components/Counter'
+import Counter from './counter/Counter'
 /*
 //Store : the global state 
 interface CounterState {
@@ -25,6 +25,7 @@ function App() {
     <>
     <h2>
       Redux Complete Tutorial
+      <Counter/>
     </h2>
       
     </>
